@@ -1,0 +1,98 @@
+.logbox_container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px;
+  overflow-y: auto;
+  max-height: 70vh;
+  z-index: 9999999999;
+  border-radius: 4px;
+  text-align: left;
+  font-size: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.logbox_container:hover {
+  background-color: #f0f0f050;
+}
+
+.logbox {
+  width: 350px;
+  overflow: auto;
+  border: 1px solid;
+}
+
+.logbox:last-child {
+  margin-bottom: 0;
+}
+
+.logbox a {
+  color: inherit;
+}
+
+.logbox_type__log,
+.logbox_type__info,
+.logbox_type__warning,
+.logbox_type__error {
+  /* border: 1px solid; */
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 10px;
+  color: white;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.logbox_type__info {
+  background-color: #ebf5ff;
+  color: #2760dd;
+  border-color: #d5e0f7;
+}
+
+.logbox_type__success {
+  background-color: #f2faf7;
+  color: #258065;
+}
+
+.logbox_type__error {
+  background-color: #fff0f0;
+  color: #ff0303;
+  border-color: #ffdfdf;
+}
+
+.logbox_type__warning {
+  background-color: #fdfdea;
+  color: #9b612b;
+  border-color: #ebddd2;
+}
+
+.logbox_icon svg {
+  width: 1.2em;
+  height: 1.2em;
+}
+
+.logbox_icon {
+  margin-right: 5px;
+  margin-top: 2px;
+}
+
+.logbox_body {
+  display: flex;
+}
+
+.logbox_icon__default {
+  display: block;
+}
+
+.logbox_icon__x {
+  display: none;
+}
+
+.logbox_icon__show-x .logbox_icon__default {
+  display: none;
+}
+
+.logbox_icon__show-x .logbox_icon__x {
+  display: block;
+}

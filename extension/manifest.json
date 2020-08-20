@@ -1,0 +1,23 @@
+{
+  "name": "LogBox",
+  "version": "0.0.2",
+  "description": "View logs on any webpage without opening devtools",
+  "homepage_url": "https://logbox.egoist.sh",
+  "manifest_version": 2,
+  "minimum_chrome_version": "74",
+  "icons": {
+    "128": "icon.png"
+  },
+  "permissions": ["storage"],
+  "options_ui": {
+    "page": "options.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "run_at": "document_start",
+      "js": ["./dist/browser-polyfill.min.js", "./dist/content.js"]
+    }
+  ],
+  "web_accessible_resources": ["dist/script.js"]
+}
