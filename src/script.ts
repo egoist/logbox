@@ -19,6 +19,8 @@ const formatMessage = (input: string) => {
 }
 
 const stringifyArg = (arg: any, type: ToastType): string => {
+  if (!arg) return ''
+
   const message = formatMessage(arg.message || String(arg))
   let result = message
   if (arg instanceof PromiseRejectionEvent) {
@@ -60,7 +62,10 @@ const stringifyArg = (arg: any, type: ToastType): string => {
 const options = JSON.parse(document.currentScript?.dataset.options || '{}')
 
 const toast = (args: any[], type: ToastType, location?: string) => {
-  const message = args.map((arg) => stringifyArg(arg, type)).join(' ')
+  const message = args
+    .map((arg) => stringifyArg(arg, type))
+    .filter(Boolean)
+    .join(' ')
   new Toast({
     html: `${message}${location ? ` (${location})` : ''}`,
     type,
